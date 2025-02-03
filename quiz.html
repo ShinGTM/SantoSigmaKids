@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ICT Quiz Platform</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+            background-color: #0a3d0a;
+            color: white;
+            text-align: center;
+        }
+        h1 {
+            text-align: center;
+        }
+        .quiz-container {
+            background: white;
+            color: black;
+            padding: 20px;
+            margin: 20px auto;
+            width: 80%;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.3);
+            position: relative;
+        }
+        .question {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+        .question.active {
+            display: block;
+            opacity: 1;
+        }
+        .progress-bar-container {
+            width: 80%;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 20px auto;
+            height: 20px;
+            box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.3);
+        }
+        .progress-bar {
+            height: 100%;
+            width: 0%;
+            background: #065406;
+            transition: width 0.5s;
+        }
+        button {
+            padding: 10px;
+            background: #0a3d0a;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+            font-size: 16px;
+        }
+        button:hover {
+            background: #065406;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>ICT Quiz Platform</h1>
+
+    <div class="progress-bar-container">
+        <div class="progress-bar" id="progress"></div>
+    </div>
+
+    <div class="quiz-container">
+        <h2>ICT Quiz</h2>
+
+        <div class="question active" id="q1">
+            <p>1. What does ICT stand for?</p>
+            <input type="radio" name="q1" value="a"> a) Information and Communication Technology <br>
+            <input type="radio" name="q1" value="b"> b) Internet and Computer Technology <br>
+            <input type="radio" name="q1" value="c"> c) International Computing Trends <br>
+        </div>
+
+        <div class="question" id="q2">
+            <p>2. Which of these is an example of ICT?</p>
+            <input type="radio" name="q2" value="a"> a) Social Media <br>
+            <input type="radio" name="q2" value="b"> b) Email <br>
+            <input type="radio" name="q2" value="c"> c) Both a and b <br>
+        </div>
+
+        <div class="question" id="q3">
+            <p>3. What is the full form of CPU?</p>
+            <input type="radio" name="q3" value="a"> a) Central Processing Unit <br>
+            <input type="radio" name="q3" value="b"> b) Computer Processing Unit <br>
+            <input type="radio" name="q3" value="c"> c) Control Program Unit <br>
+        </div>
+
+        <div class="question" id="q4">
+            <p>4. Which is NOT an input device?</p>
+            <input type="radio" name="q4" value="a"> a) Keyboard <br>
+            <input type="radio" name="q4" value="b"> b) Mouse <br>
+            <input type="radio" name="q4" value="c"> c) Monitor <br>
+        </div>
+
+        <div class="question" id="q5">
+            <p>5. What does HTTP stand for?</p>
+            <input type="radio" name="q5" value="a"> a) Hyper Text Transfer Protocol <br>
+            <input type="radio" name="q5" value="b"> b) High Text Transmission Process <br>
+            <input type="radio" name="q5" value="c"> c) Hyperlink Transfer Process <br>
+        </div>
+
+        <div class="question" id="q6">
+            <p>6. What is an example of system software?</p>
+            <input type="radio" name="q6" value="a"> a) MS Word <br>
+            <input type="radio" name="q6" value="b"> b) Operating System <br>
+            <input type="radio" name="q6" value="c"> c) Web Browser <br>
+        </div>
+
+        <div class="question" id="q7">
+            <p>7. What does RAM stand for?</p>
+            <input type="radio" name="q7" value="a"> a) Random Access Memory <br>
+            <input type="radio" name="q7" value="b"> b) Read Access Memory <br>
+            <input type="radio" name="q7" value="c"> c) Rapid Action Memory <br>
+        </div>
+
+        <div class="question" id="q8">
+            <p>8. What does URL stand for?</p>
+            <input type="radio" name="q8" value="a"> a) Uniform Resource Locator <br>
+            <input type="radio" name="q8" value="b"> b) Universal Router Link <br>
+            <input type="radio" name="q8" value="c"> c) Unified Resource Link <br>
+        </div>
+
+        <div class="question" id="q9">
+            <p>9. Which of the following is a web browser?</p>
+            <input type="radio" name="q9" value="a"> a) Chrome <br>
+            <input type="radio" name="q9" value="b"> b) Photoshop <br>
+            <input type="radio" name="q9" value="c"> c) Windows <br>
+        </div>
+
+        <div class="question" id="q10">
+            <p>10. What is the primary function of an operating system?</p>
+            <input type="radio" name="q10" value="a"> a) Manage hardware and software <br>
+            <input type="radio" name="q10" value="b"> b) Play music <br>
+            <input type="radio" name="q10" value="c"> c) Browse the internet <br>
+        </div>
+
+        <button onclick="prevQuestion()">Previous</button>
+        <button onclick="nextQuestion()">Next</button>
+        <button onclick="checkAnswers()" style="display: none;" id="submitBtn">Submit</button>
+
+        <p id="result"></p>
+    </div>
+
+    <script>
+        let currentQuestion = 1;
+        const totalQuestions = 10;
+
+        function showQuestion(num) {
+            document.querySelectorAll('.question').forEach(q => {
+                q.classList.remove('active');
+                q.style.display = 'none';
+            });
+            let nextQ = document.getElementById(`q${num}`);
+            if (nextQ) {
+                nextQ.style.display = 'block';
+                setTimeout(() => {
+                    nextQ.classList.add('active');
+                }, 10);
+            }
+
+            updateProgress();
+            toggleButtons();
+        }
+
+        function nextQuestion() {
+            if (currentQuestion < totalQuestions) {
+                currentQuestion++;
+                showQuestion(currentQuestion);
+            }
+        }
+
+        function prevQuestion() {
+            if (currentQuestion > 1) {
+                currentQuestion--;
+                showQuestion(currentQuestion);
+            }
+        }
+
+        function updateProgress() {
+            let progress = (currentQuestion / totalQuestions) * 100;
+            document.getElementById("progress").style.width = progress + "%";
+        }
+
+        function toggleButtons() {
+            document.getElementById("submitBtn").style.display = (currentQuestion === totalQuestions) ? "inline-block" : "none";
+        }
+
+        showQuestion(currentQuestion);
+    </script>
+
+</body>
+</html>

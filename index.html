@@ -37,6 +37,7 @@
       right: 10%;
       animation-delay: 2s; /* Slight delay for a natural effect */
     }
+
     @keyframes moveCircle {
       0% {
         transform: translateX(0);
@@ -99,6 +100,28 @@
       font-size: 0.9em;
       color: #006633;
     }
+
+    /* Quiz Popup Button */
+    .quiz-popup {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #006633;
+      color: #ffffff;
+      padding: 15px 20px;
+      font-size: 1.2em;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+      opacity: 0.9;
+    }
+
+    .quiz-popup:hover {
+      background-color: #004d26;
+      transform: scale(1.05);
+      opacity: 1;
+    }
   </style>
 </head>
 <body>
@@ -106,7 +129,6 @@
 <!-- Moving Background Circle -->
 <div class="circle circle1"></div>
 <div class="circle circle2"></div>
-
 
 <header>
   <h1>ICT Connect</h1>
@@ -170,6 +192,9 @@
     </ul>
   </p>
 </section>
+
+<!-- Quiz Popup Button -->
+<div class="quiz-popup" onclick="fadeRedirect(event, 'quiz.html')">Take the Quiz</div>
 
 <footer>
   <p>© 2025 ICT Connect. All rights reserved.</p>
