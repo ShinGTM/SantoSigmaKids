@@ -16,7 +16,7 @@ Roniel Lumagda
 
 ---
 
-🌐 ICT Connect
+🌐 ICT Connect ![Santo][https://github.com/ShinGTM/SantoSigmaKids/blob/main/icon.png]
 
 Connecting people through innovative ICT solutions.
 
