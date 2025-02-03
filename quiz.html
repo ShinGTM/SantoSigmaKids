@@ -62,6 +62,35 @@
         button:hover {
             background: #065406;
         }
+        #result {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        .popup {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: white;
+            color: black;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+        .popup button {
+            background: #065406;
+            color: white;
+            padding: 8px 15px;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .popup button:hover {
+            background: #043003;
+        }
     </style>
 </head>
 <body>
@@ -147,56 +176,90 @@
 
         <button onclick="prevQuestion()">Previous</button>
         <button onclick="nextQuestion()">Next</button>
-        <button onclick="checkAnswers()" style="display: none;" id="submitBtn">Submit</button>
+        <button onclick="checkAnswers()" id="submitBtn" style="display: none;">Submit</button>
 
         <p id="result"></p>
+
+        <div class="popup" id="popup">
+            <p>Quiz completed! Click below to return home.</p>
+            <button onclick="window.location.href='index.html'">Go Back to Home</button>
+        </div>
     </div>
 
     <script>
         let currentQuestion = 1;
-        const totalQuestions = 10;
+const totalQuestions = 10;
 
-        function showQuestion(num) {
-            document.querySelectorAll('.question').forEach(q => {
-                q.classList.remove('active');
-                q.style.display = 'none';
-            });
-            let nextQ = document.getElementById(`q${num}`);
-            if (nextQ) {
-                nextQ.style.display = 'block';
-                setTimeout(() => {
-                    nextQ.classList.add('active');
-                }, 10);
-            }
+function showQuestion(num) {
+    document.querySelectorAll('.question').forEach(q => {
+        q.classList.remove('active');
+        q.style.display = 'none';
+    });
 
-            updateProgress();
-            toggleButtons();
-        }
+    let nextQ = document.getElementById(`q${num}`);
+    if (nextQ) {
+        nextQ.style.display = 'block';
+        setTimeout(() => {
+            nextQ.classList.add('active');
+        }, 10);
+    }
 
-        function nextQuestion() {
-            if (currentQuestion < totalQuestions) {
-                currentQuestion++;
-                showQuestion(currentQuestion);
-            }
-        }
+    updateProgress();
+    toggleButtons();
+}
 
-        function prevQuestion() {
-            if (currentQuestion > 1) {
-                currentQuestion--;
-                showQuestion(currentQuestion);
-            }
-        }
-
-        function updateProgress() {
-            let progress = (currentQuestion / totalQuestions) * 100;
-            document.getElementById("progress").style.width = progress + "%";
-        }
-
-        function toggleButtons() {
-            document.getElementById("submitBtn").style.display = (currentQuestion === totalQuestions) ? "inline-block" : "none";
-        }
-
+function nextQuestion() {
+    if (currentQuestion < totalQuestions) {
+        currentQuestion++;
         showQuestion(currentQuestion);
+    }
+}
+
+function prevQuestion() {
+    if (currentQuestion > 1) {
+        currentQuestion--;
+        showQuestion(currentQuestion);
+    }
+}
+
+function updateProgress() {
+    let progress = (currentQuestion / totalQuestions) * 100;
+    document.getElementById("progress").style.width = progress + "%";
+}
+
+function toggleButtons() {
+    document.getElementById("submitBtn").style.display = (currentQuestion === totalQuestions) ? "inline-block" : "none";
+}
+
+function checkAnswers() {
+    let score = 0;
+    let answers = {
+        q1: "a",
+        q2: "c",
+        q3: "a",
+        q4: "c",
+        q5: "a",
+        q6: "b",
+        q7: "a",
+        q8: "a",
+        q9: "a",
+        q10: "a"
+    };
+
+    for (let i = 1; i <= totalQuestions; i++) {
+        let selectedAnswer = document.querySelector(`input[name="q${i}"]:checked`);
+        if (selectedAnswer && selectedAnswer.value === answers[`q${i}`]) {
+            score++;
+        }
+    }
+
+    document.getElementById("result").innerText = `Your Score: ${score} / ${totalQuestions}`;
+    
+    document.getElementById("popup").style.display = "block";
+}
+
+// Initialize the first question
+showQuestion(currentQuestion);// Same JavaScript logic as before, plus logic to show the popup after submission
     </script>
 
 </body>
