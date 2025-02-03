@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ICT Connect</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #ffffff;
+      color: #333333;
+      overflow-x: hidden;
+      transition: opacity 0.5s ease-in-out;
+      position: relative;
+    }
+
+    /* Background Circle */
+    .circle {
+      position: fixed;
+      width: 150px;
+      height: 150px;
+      background-color: rgba(0, 102, 51, 0.3); /* Green with low opacity */
+      border-radius: 50%;
+      animation: moveCircle 15s infinite alternate ease-in-out, floatUpDown 5s infinite ease-in-out;
+      z-index: -1;
+    }
+
+    .circle1 {
+      top: 10%;
+      left: 10%;
+    }
+
+    .circle2 {
+      top: 70%;
+      right: 10%;
+      animation-delay: 2s; /* Slight delay for a natural effect */
+    }
+    @keyframes moveCircle {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(90vw);
+      }
+    }
+
+    header {
+      text-align: center;
+      padding: 50px 20px;
+    }
+
+    h1 {
+      font-size: 3em;
+      color: #006633;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: #006633;
+      font-size: 1.2em;
+      border-bottom: 2px solid transparent;
+      transition: all 0.3s ease-in-out;
+    }
+
+    nav a:hover {
+      border-bottom: 2px solid #66ff99;
+      transform: scale(1.1);
+    }
+
+    section {
+      padding: 50px 20px;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.8s ease-in-out;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9em;
+      color: #006633;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Moving Background Circle -->
+<div class="circle circle1"></div>
+<div class="circle circle2"></div>
+
+
+<header>
+  <h1>ICT Connect</h1>
+  <nav>
+    <a href="teams.html" onclick="fadeRedirect(event, 'teams.html')">Teams</a>
+    <a href="more.html" onclick="fadeRedirect(event, 'more.html')">More</a>
+    <a href="works.html" onclick="fadeRedirect(event, 'works.html')">Works</a>
+  </nav>
+</header>
+
+<section>
+  <h2 class="fade-in">What is ICT?</h2>
+  <p class="fade-in">
+    Information and Communication Technology (ICT) encompasses the infrastructure and components that enable modern computing. It includes technologies for data storage, processing, and communication.
+  </p>
+</section>
+
+<section>
+  <h2 class="fade-in">History of ICT</h2>
+  <p class="fade-in">
+    The concept of ICT emerged in the late 20th century when information technology and telecommunications converged. Early examples of ICT include telegraphs, telephone systems, and radio communication. 
+    The digital revolution of the 1970s and 1980s brought personal computers, internet connectivity, and mobile technologies into the ICT framework.
+  </p>
+</section>
+
+<section>
+  <h2 class="fade-in">Parts of ICT</h2>
+  <p class="fade-in">
+    ICT is divided into several parts that work together:
+    <ul class="fade-in">
+      <li>Hardware: Physical devices like computers, servers, and networking equipment.</li>
+      <li>Software: Operating systems, applications, and tools for processing data.</li>
+      <li>Telecommunications: Technologies like wireless networks, fiber optics, and satellite communications.</li>
+      <li>Data: The information being stored, processed, or transmitted.</li>
+    </ul>
+  </p>
+</section>
+
+<section>
+  <h2 class="fade-in">Subsystems of ICT</h2>
+  <p class="fade-in">
+    ICT comprises several interconnected subsystems:
+    <ul class="fade-in">
+      <li>Data Processing Subsystems: Manage and manipulate data for useful output.</li>
+      <li>Communication Subsystems: Enable data exchange through email, messaging, or video calls.</li>
+      <li>Storage Subsystems: Store data securely and efficiently using cloud or local solutions.</li>
+      <li>Security Subsystems: Protect systems and data from unauthorized access or breaches.</li>
+    </ul>
+  </p>
+</section>
+
+<section>
+  <h2 class="fade-in">Main Components of ICT</h2>
+  <p class="fade-in">
+    ICT's main components are essential for enabling modern communication and information-sharing:
+    <ul class="fade-in">
+      <li>Devices: Computers, smartphones, tablets, servers, and peripherals.</li>
+      <li>Networks: Wired or wireless systems like LAN, WAN, and the internet.</li>
+      <li>Platforms: Software platforms that support business, education, and collaboration, such as Microsoft Office or Google Workspace.</li>
+      <li>Human Resources: Skilled professionals such as IT managers, developers, and engineers.</li>
+    </ul>
+  </p>
+</section>
+
+<footer>
+  <p>© 2025 ICT Connect. All rights reserved.</p>
+</footer>
+
+<script>
+  // Fade-in on scroll
+  const fadeInElements = document.querySelectorAll('.fade-in');
+
+  const handleScroll = () => {
+    fadeInElements.forEach(el => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight - 50) {
+        el.classList.add('visible');
+      }
+    });
+  };
+
+  window.addEventListener('scroll', handleScroll);
+
+  // Smooth fade-out and redirect
+  const fadeRedirect = (event, url) => {
+    event.preventDefault();
+    document.body.style.opacity = '0';
+    setTimeout(() => {
+      window.location.href = url;
+    }, 500);
+  };
+
+  // Fade-in when page loads
+  window.addEventListener('load', () => {
+    document.body.style.opacity = '1';
+  });
+
+  document.body.style.opacity = '0';
+</script>
+
+</body>
+</html>

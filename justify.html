@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Text Alignment and Direction</title>
+  <style>
+    /* Dark green and white theme for the body */
+    body {
+      background-color: darkgreen;
+      color: white;
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 20px;
+    }
+
+    /* Text alignment classes */
+    p.a {
+      text-align-last: right;
+    }
+
+    p.b {
+      text-align-last: center;
+    }
+
+    p.c {
+      text-align-last: justify;
+    }
+
+    /* Right-to-left direction */
+    p.ex1 {
+      direction: rtl;
+      unicode-bidi: bidi-override;
+    }
+
+    /* Styling for paragraphs for better readability */
+    p {
+      background-color: #004d00; /* A darker green for contrast */
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 15px;
+    }
+  </style>
+</head>
+
+<body>
+  <p class="a">The quick brown fox jumps over the lazy dog</p>
+  <p class="b">The quick brown fox jumps over the lazy dog</p>
+  <p class="c">The quick brown fox jumps over the lazy dog</p>
+  <p class="ex1">The quick brown fox jumps over the lazy dog</p>
+</body>
+
+</html>

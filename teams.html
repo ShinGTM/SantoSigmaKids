@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Team</title>
+  <style>
+    /* General styling */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #ffffff;
+      color: #333333;
+      overflow-x: hidden;
+      transition: opacity 0.5s ease-in-out; /* Fade-in/out effect */
+    }
+    .circle {
+      position: fixed;
+      width: 150px;
+      height: 150px;
+      background-color: rgba(0, 102, 51, 0.3); /* Green with low opacity */
+      border-radius: 50%;
+      animation: moveCircle 15s infinite alternate ease-in-out, floatUpDown 5s infinite ease-in-out;
+      z-index: -1;
+    }
+
+    .circle1 {
+      top: 10%;
+      left: 10%;
+    }
+
+    .circle2 {
+      top: 70%;
+      right: 10%;
+      animation-delay: 2s; /* Slight delay for a natural effect */
+    }
+    @keyframes moveCircle {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(90vw);
+      }
+    }
+
+    header {
+      text-align: center;
+      padding: 50px 20px;
+    }
+
+    h1 {
+      font-size: 3em;
+      color: #006633;
+    }
+
+    .team-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 20px;
+    }
+
+    /* Team card styling */
+    .team-card {
+      background-color: #f7f7f7;
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      width: 250px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    .team-card img {
+      border-radius: 50%;
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      margin-bottom: 10px;
+    }
+
+    .team-card h2 {
+      font-size: 1.5em;
+      color: #006633;
+    }
+
+    .team-card p {
+      font-size: 0.9em;
+      color: #555555;
+      margin: 10px 0;
+    }
+
+    .team-card a {
+      display: inline-block;
+      margin: 5px;
+      text-decoration: none;
+      color: #006633;
+      font-size: 1.2em;
+    }
+
+    .team-card a:hover {
+      color: #66ff99;
+    }
+
+    .team-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .team-card.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+<div class="circle circle1"></div>
+<div class="circle circle2"></div>
+<header>
+  <h1>Our Teams</h1>
+</header>
+
+<div class="team-container">
+  <div class="team-card fade-in">
+    <img src="r.jpg">
+    <h2>Rogie D. Burac</h2>
+    <p>Builds the website by combining their ideas.</p>
+    <a href="#" title="Facebook">Facebook</a>
+    <a href="#" title="TikTok">TikTok</a>
+    <a href="#" title="Portfolio">Portfolio</a>
+  </div>
+
+  <div class="team-card fade-in">
+    <img src="n.jpg">
+    <h2>Nhagel R. Soliven</h2>
+    <p>giving information.</p>
+    <a href="#" title="Facebook">Facebook</a>
+    <a href="#" title="TikTok">TikTok</a>
+    <a href="#" title="Portfolio">Portfolio</a>
+  </div>
+
+  <div class="team-card fade-in">
+    <img src="j.jpg">
+    <h2>Jaycee Carcha</h2>
+    <p>animations.</p>
+    <a href="#" title="Facebook">Facebook</a>
+    <a href="#" title="TikTok">TikTok</a>
+    <a href="#" title="Portfolio">Portfolio</a>
+  </div>
+
+  <div class="team-card fade-in">
+    <img src="nathan.jpg">
+    <h2>Nathaniel Valenzuela</h2>
+    <p>supports the backend.</p>
+    <a href="#" title="Facebook">Facebook</a>
+    <a href="#" title="TikTok">TikTok</a>
+    <a href="#" title="Portfolio">Portfolio</a>
+  </div>
+    <div class="team-card fade-in">
+    <img src="ro.jpg">
+    <h2>Roniel Lumagda</h2>
+    <p>giving ideas.</p>
+    <a href="#" title="Facebook">Facebook</a>
+    <a href="#" title="TikTok">TikTok</a>
+    <a href="#" title="Portfolio">Portfolio</a>
+  </div>
+</div>
+
+<script>
+  // Fade-in animation for team cards
+  const fadeInElements = document.querySelectorAll('.fade-in');
+
+  const handleScroll = () => {
+    fadeInElements.forEach(el => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight - 50) {
+        el.classList.add('visible');
+      }
+    });
+  };
+
+  window.addEventListener('scroll', handleScroll);
+
+  // Smooth fade-out for redirect
+  const fadeRedirect = (event, url) => {
+    event.preventDefault();
+    document.body.style.opacity = '0';
+    setTimeout(() => {
+      window.location.href = url;
+    }, 500);
+  };
+
+  // Fade-in on page load
+  window.addEventListener('load', () => {
+    document.body.style.opacity = '1';
+  });
+
+  // Initial fade-out
+  document.body.style.opacity = '0';
+</script>
+
+</body>
+</html>

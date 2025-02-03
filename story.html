@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Technology Story</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: #f0f0f0;
+        }
+
+        .page {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            margin: 20px;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .page.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .image-container {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            margin-bottom: 20px;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+            transition: transform 0.5s ease;
+        }
+
+        .image-container img:hover {
+            cursor: pointer;
+        }
+
+        .text {
+            text-align: center;
+            font-size: 18px;
+            color: #333;
+        }
+
+        .navigation {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            width: 80%;
+        }
+
+        .navigation button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .navigation button:disabled {
+            background-color: #aaa;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="page1" class="page active">
+        <div class="image-container">
+            <img src="images.jpeg" alt="Page 1 Image" onclick="rotateImage(this)">
+        </div>
+        <div class="text">
+            <p>Computers are essential tools in modern society, enabling us to connect, create, and innovate.</p>
+        </div>
+    </div>
+
+    <div id="page2" class="page">
+        <div class="image-container">
+            <img src="images.jpeg" alt="Page 2 Image" onclick="rotateImage(this)">
+        </div>
+        <div class="text">
+            <p>From powerful processors to sleek designs, technology continues to evolve at a rapid pace.</p>
+        </div>
+    </div>
+
+    <div id="page3" class="page">
+        <div class="image-container">
+            <img src="images.jpeg" alt="Page 3 Image" onclick="rotateImage(this)">
+        </div>
+        <div class="text">
+            <p>The future of computing promises advancements in artificial intelligence and quantum computing.</p>
+        </div>
+    </div>
+
+    <div id="page4" class="page">
+        <div class="image-container">
+            <img src="images.jpeg" alt="Page 4 Image" onclick="rotateImage(this)">
+        </div>
+        <div class="text">
+            <p>Programmers and engineers collaborate to solve complex problems and improve user experiences.</p>
+        </div>
+    </div>
+
+    <div id="page5" class="page">
+        <div class="image-container">
+            <img src="images.jpeg" alt="Page 5 Image" onclick="rotateImage(this)">
+        </div>
+        <div class="text">
+            <p>Technological innovations continue to shape industries such as healthcare, education, and entertainment.</p>
+        </div>
+    </div>
+
+    <div id="page6" class="page">
+        <div class="image-container">
+            <img src="images.jpeg" alt="Page 6 Image" onclick="rotateImage(this)">
+        </div>
+        <div class="text">
+            <p>As we embrace the digital age, the possibilities for computing and technology are limitless.</p>
+        </div>
+    </div>
+
+    <div class="navigation">
+        <button id="prevBtn" onclick="navigatePages(-1)" disabled>Previous</button>
+        <button id="nextBtn" onclick="navigatePages(1)">Next</button>
+    </div>
+
+    <script>
+        let currentPage = 1;
+        const totalPages = 6;
+
+        function navigatePages(direction) {
+            const currentElement = document.getElementById(`page${currentPage}`);
+            const nextPage = currentPage + direction;
+            const nextElement = document.getElementById(`page${nextPage}`);
+
+            // Add fade-out animation to the current page
+            currentElement.style.opacity = '0';
+            setTimeout(() => {
+                currentElement.classList.remove('active');
+                nextElement.classList.add('active');
+                
+                // Add fade-in animation to the next page
+                nextElement.style.opacity = '1';
+                currentPage = nextPage;
+
+                // Update button states
+                document.getElementById('prevBtn').disabled = currentPage === 1;
+                document.getElementById('nextBtn').disabled = currentPage === totalPages;
+            }, 500); // Wait for the fade-out animation to complete
+        }
+
+        function rotateImage(image) {
+            image.style.transform = 'rotate(360deg) scale(1.2)';
+            setTimeout(() => {
+                image.style.transform = 'rotate(0deg) scale(1)';
+            }, 500);
+        }
+    </script>
+</body>
+</html>

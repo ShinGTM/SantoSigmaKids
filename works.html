@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Works</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0fff0; /* Light green */
+      color: #004d00; /* Dark green */
+      margin: 0;
+      padding: 0;
+    }
+    .circle {
+      position: fixed;
+      width: 150px;
+      height: 150px;
+      background-color: rgba(0, 102, 51, 0.3); /* Green with low opacity */
+      border-radius: 50%;
+      animation: moveCircle 15s infinite alternate ease-in-out, floatUpDown 5s infinite ease-in-out;
+      z-index: -1;
+    }
+
+    .circle1 {
+      top: 10%;
+      left: 10%;
+    }
+
+    .circle2 {
+      top: 70%;
+      right: 10%;
+      animation-delay: 2s; /* Slight delay for a natural effect */
+    }
+    @keyframes moveCircle {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(90vw);
+      }
+    }
+
+    header {
+      background-color: #006600; /* Green */
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+    }
+
+    .container {
+      padding: 10px;
+    }
+
+    .work-card {
+      background-color: white;
+      border: 1px solid #006600; /* Green border */
+      border-radius: 5px;
+      padding: 15px;
+      margin-bottom: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      text-decoration: none;
+      color: #004d00;
+      display: block;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .work-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .work-title {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    .work-description {
+      font-size: 16px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 10px;
+      background-color: #006600;
+      color: white;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div class="circle circle1"></div>
+<div class="circle circle2"></div>
+  <header>
+    <h1>My Works</h1>
+  </header>
+   <div class="container">
+    <a href="home.html" class="work-card">
+      <h2 class="work-title">Santo Webpage</h2>
+      <p class="work-description">
+        Santo Domingo Webpage.
+      </p>
+    </a>
+  </div>
+  <div class="container">
+    <a href="java.html" class="work-card">
+      <h2 class="work-title">Java Application</h2>
+      <p class="work-description">
+        Simple Java Application using gifs.
+      </p>
+    </a>
+  </div>
+  <div class="container">
+    <a href="subjects.html" class="work-card">
+      <h2 class="work-title">Subjects</h2>
+      <p class="work-description">
+        subjects.
+      </p>
+    </a>
+  </div>
+    <div class="container">
+    <a href="justify.html" class="work-card">
+      <h2 class="work-title">Quick Jump fox</h2>
+      <p class="work-description">
+        subjects.
+      </p>
+    </a>
+  </div>
+      <div class="container">
+    <a href="img.html" class="work-card">
+      <h2 class="work-title">Img</h2>
+      <p class="work-description">
+        subjects.
+      </p>
+    </a>
+  </div>
+        <div class="container">
+    <a href="story.html" class="work-card">
+      <h2 class="work-title">Story</h2>
+      <p class="work-description">
+        tech information.
+      </p>
+    </a>
+  </div>
+  <div class="container">
+    <a href="decorations.html" class="work-card">
+      <h2 class="work-title">Text Decorations</h2>
+      <p class="work-description">
+        text decorations.
+      </p>
+    </a>
+  </div>
+  <footer>
+    &copy; 2025 My Works Portfolio
+  </footer>
+</body>
+</html>

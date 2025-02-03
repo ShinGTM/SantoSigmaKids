@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #e9ecef, #ced4da);
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        p {
+            text-align: center;
+            font-size: 100px;
+            animation: fadeIn 2s;
+        }
+      
+    </style>
+  </head>
+   <body>
+       <h2>Sample JAVA Application</h2>
+       <img id="myImage" src="sad.gif" width="180" height="180">  <p>     
+       <button type="button" onclick="face(1)">Happy</button>     
+       <button type="button" onclick="face(0)">Sad</button>
+       </p>  
+<script> function face(sw)
+{     var pic;    
+if (sw == 0) {         pic = "sad.gif";     } else {         pic = "happy.gif";     }     document.getElementById("myImage").src = pic; } 
+</script>  </body> </html>

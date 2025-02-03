@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>My Site</title>
+    <style>
+        /* General styling */
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background-color: #f4f4f9; /* Light gray background */
+            font-family: Arial, sans-serif;
+        }
+
+        /* Style the header */
+        header {
+            background-color: darkgreen; /* Dark blue */
+            color: #f4f4f9; /* Light gray */
+            padding: 10px;
+            text-align: center;
+            font-size: 35px;
+        }
+
+        /* Navigation bar styles */
+        .nav {
+            overflow: hidden;
+            background-color: #333; /* Medium blue */
+        }
+
+        .nav a {
+            float: left;
+            display: block;
+            color: #f4f4f9; /* Light gray */
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        .nav a:hover {
+            background-color: darkgreen; /* Light gray */
+            color: #3a506b; /* Medium blue */
+        }
+
+        /* Dropdown container */
+        .dropdown {
+            float: left;
+            overflow: hidden;
+        }
+
+        .dropdown .dropbtn {
+            font-size: 16px;
+            border: none;
+            outline: none;
+            color: #f4f4f9; /* Light gray */
+            padding: 14px 16px;
+            background-color: inherit;
+            font-family: inherit;
+            margin: 0;
+        }
+
+        .dropdown:hover .dropbtn {
+            background-color: darkgreen; /* Light gray */
+            color: #3a506b; /* Medium blue */
+        }
+
+        /* Dropdown content (hidden by default) */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f4f4f9; /* Light gray */
+            min-width: auto;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            float: none;
+            color: #3a506b; /* Medium blue */
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+
+        .dropdown-content a:hover {
+            background-color: darkgreen; /* Medium blue */
+            color: #f4f4f9; /* Light gray */
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* Create three equal columns that float next to each other */
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 20px;
+        }
+
+        .column {
+            float: left;
+            width: 33.33%;
+            padding: 15px;
+            background-color: #edf5e1; /* Soft green */
+            margin: 10px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .column h2 {
+            color: black; /* Dark blue */
+        }
+
+        .column p {
+            color: black; /* Medium blue */
+        }
+
+        /* Responsive layout for small screens */
+        @media screen and (max-width: 600px) {
+            .column {
+                width: 100%;
+            }
+        }
+
+        /* Footer styling */
+        footer {
+            margin-top: 20px;
+            text-align: center;
+            background-color: darkgreen; /* Dark blue */
+            color: #f4f4f9; /* Light gray */
+            padding: 10px 0;
+        }
+                .column {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            width: 300px;
+            text-align: center;
+            padding: 20px;
+            transition: transform 0.3s, background 0.3s;
+        }
+
+        .column:hover {
+            transform: scale(1.1);
+            background: linear-gradient(to bottom right, #1C4A2A , #2F7D47);
+            color: white;
+        }
+
+        .column h3 {
+            margin-bottom: 10px;
+            font-size: 24px;
+            color: white;
+        }
+
+        .column p {
+            font-size: 16px;
+            color: black;
+        }
+
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h2>Sto Domingo IHS</h2>
+    </header>
+    <div class="nav">
+        <a href="mission.html">Mission</a>
+        <a href="vision.html">Vision</a>
+        <div class="dropdown">
+            <button class="dropbtn">Core Values</button>
+            <div class="dropdown-content">
+                <a href="philosophy.html">Maka-Diyos</a>
+                <a href="philosophy.html">Maka-Tao</a>
+                <a href="philosophy.html">Maka-Kalikasan</a>
+                <a href="philosophy.html">Makabansa</a>
+            </div>
+        </div>
+        <a href="works.html">Works</a>
+    </div>
+    
+    <!-- Content with columns -->
+    <div class="row">
+        <div class="column">
+            <h2>The FOX</h2>
+            <p>The quick brown fox jumps over the lazy dog.</p>
+        </div>
+        <div class="column">
+            <h2>SDIHS</h2>
+            <p>School was founded in 1971.</p>
+        </div>
+        <div class="column">
+            <h2>Announcement</h2>
+            <p>There will be NO CLASSES on January 25, 2025 due to Typhoon Danilyn.</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>10- Banahaw</p>
+    </footer>
+</body>
+</html>

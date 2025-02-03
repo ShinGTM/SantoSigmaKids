@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>More About ICT</title>
+  <style>
+    /* General styling */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #e6ffe6;
+      color: #333333;
+      overflow-x: hidden;
+      transition: opacity 0.5s ease-in-out;
+    }
+    .circle {
+      position: fixed;
+      width: 150px;
+      height: 150px;
+      background-color: rgba(0, 102, 51, 0.3); /* Green with low opacity */
+      border-radius: 50%;
+      animation: moveCircle 15s infinite alternate ease-in-out, floatUpDown 5s infinite ease-in-out;
+      z-index: -1;
+    }
+
+    .circle1 {
+      top: 10%;
+      left: 10%;
+    }
+
+    .circle2 {
+      top: 70%;
+      right: 10%;
+      animation-delay: 2s; /* Slight delay for a natural effect */
+    }
+    @keyframes moveCircle {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(90vw);
+      }
+    }
+
+    header {
+      text-align: center;
+      padding: 50px 20px;
+      background-color: #006633;
+      color: #ffffff;
+    }
+
+    h1 {
+      font-size: 3em;
+    }
+
+    .content-section {
+      padding: 20px 50px;
+    }
+
+    .content-section h2 {
+      color: #006633;
+      margin-bottom: 10px;
+      font-size: 2em;
+    }
+
+    .content-section p, li {
+      font-size: 1.1em;
+      line-height: 1.6;
+      margin-bottom: 15px;
+    }
+
+    ul {
+      list-style-type: square;
+      margin: 0;
+      padding-left: 20px;
+    }
+
+    /* Miscellaneous styling */
+    .miscellaneous {
+      background-color: #f7f7f7;
+      padding: 20px 50px;
+      margin-top: 30px;
+      border-top: 2px solid #006633;
+    }
+
+    .miscellaneous h2 {
+      margin-bottom: 20px;
+      color: #006633;
+    }
+
+    .misc-section {
+      margin-bottom: 30px;
+    }
+
+    a {
+      color: #006633;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    a:hover {
+      color: #66cc99;
+      text-decoration: underline;
+    }
+
+    /* Fade-in animation */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+  <div class="circle circle1"></div>
+<div class="circle circle2"></div>
+
+<header>
+  <h1>More About ICT</h1>
+</header>
+
+<div class="content-section">
+  <h2>History of ICT</h2>
+  <p>
+    Information and Communications Technology (ICT) has its roots in the mid-20th century, evolving rapidly from the invention of computers to the integration of networking, telecommunications, and data processing. Early developments include:
+  </p>
+  <ul>
+    <li>The invention of the telegraph and telephone in the 19th century.</li>
+    <li>The rise of digital computing in the 1940s with ENIAC.</li>
+    <li>The development of the internet and global networks in the late 20th century.</li>
+  </ul>
+
+  <h2>Parts and Components of ICT</h2>
+  <p>ICT systems are comprised of various elements, including:</p>
+  <ul>
+    <li><b>Hardware:</b> Physical components like computers, servers, routers, and storage devices.</li>
+    <li><b>Software:</b> Operating systems, applications, and management tools.</li>
+    <li><b>Networks:</b> Communication infrastructures like LANs, WANs, and the internet.</li>
+    <li><b>Data:</b> The core of ICT systems, encompassing storage, management, and analysis.</li>
+    <li><b>People:</b> Users, developers, and IT professionals who operate the system.</li>
+  </ul>
+</div>
+
+<div class="miscellaneous">
+  <h2>Miscellaneous</h2>
+
+  <div class="misc-section">
+    <h3>Indexes</h3>
+    <p>
+      Explore comprehensive ICT-related topics and guides in structured indexes:
+      <ul>
+        <li><a href="https://www.wikipedia.org" target="_blank">Wikipedia's ICT Overview</a></li>
+        <li><a href="https://www.techtarget.com" target="_blank">TechTarget ICT Glossary</a></li>
+      </ul>
+    </p>
+  </div>
+
+  <div class="misc-section">
+    <h3>Sources</h3>
+    <p>
+      Learn from reliable sources:
+      <ul>
+        <li><a href="https://www.cisco.com" target="_blank">Cisco Networking Academy</a></li>
+        <li><a href="https://www.ibm.com" target="_blank">IBM ICT Insights</a></li>
+      </ul>
+    </p>
+  </div>
+
+  <div class="misc-section">
+    <h3>OSINT (Open Source Intelligence)</h3>
+    <p>
+      Master the art of gathering publicly available information:
+      <ul>
+        <li><a href="https://osintframework.com/" target="_blank">OSINT Framework</a></li>
+        <li><a href="https://www.maltego.com/" target="_blank">Maltego Tools</a></li>
+      </ul>
+    </p>
+  </div>
+
+  <div class="misc-section">
+    <h3>Coding Tutorials</h3>
+    <p>
+      Start or advance your coding skills:
+      <ul>
+        <li><a href="https://www.freecodecamp.org/" target="_blank">FreeCodeCamp</a></li>
+        <li><a href="https://www.codecademy.com/" target="_blank">Codecademy</a></li>
+        <li><a href="https://www.w3schools.com/" target="_blank">W3Schools</a></li>
+      </ul>
+    </p>
+  </div>
+
+  <div class="misc-section">
+    <h3>Other Computer-Related Topics</h3>
+    <p>
+      Dive into diverse computer-related fields:
+      <ul>
+        <li><a href="https://www.khanacademy.org/computing" target="_blank">Khan Academy - Computing</a></li>
+        <li><a href="https://developer.mozilla.org/" target="_blank">MDN Web Docs</a></li>
+        <li><a href="https://www.hackerrank.com/" target="_blank">HackerRank Challenges</a></li>
+      </ul>
+    </p>
+  </div>
+</div>
+
+<script>
+  // Fade-in on scroll for sections
+  const fadeInElements = document.querySelectorAll('.fade-in');
+
+  const handleScroll = () => {
+    fadeInElements.forEach(el => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight - 50) {
+        el.classList.add('visible');
+      }
+    });
+  };
+
+  window.addEventListener('scroll', handleScroll);
+
+  // Fade-out effect for page redirect
+  const fadeRedirect = (event, url) => {
+    event.preventDefault();
+    document.body.style.opacity = '0';
+    setTimeout(() => {
+      window.location.href = url;
+    }, 500);
+  };
+
+  // Fade-in on load
+  window.addEventListener('load', () => {
+    document.body.style.opacity = '1';
+  });
+
+  // Initial fade-out
+  document.body.style.opacity = '0';
+</script>
+
+</body>
+</html>

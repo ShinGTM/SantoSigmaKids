@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 20px;
+      background-color: darkgreen; /* Dark green background */
+      color: white; /* White text */
+    }
+
+    h1, h2 {
+      color: lightgreen; /* Lighter green for headings */
+    }
+
+    img {
+      width: 30px;
+      height: 30px;
+    }
+
+    img.a {
+      vertical-align: baseline; /* Default alignment */
+    }
+
+    img.b {
+      vertical-align: text-top;
+    }
+
+    img.c {
+      vertical-align: text-bottom;
+    }
+
+    img.d {
+      vertical-align: sub;
+    }
+
+    img.e {
+      vertical-align: super;
+    }
+
+    p {
+      background-color: #004d00; /* A darker green for contrast */
+      padding: 10px;
+      border-radius: 5px;
+    }
+
+    a {
+      color: lightgreen; /* Light green for any links */
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <h1>The vertical-align Property</h1>
+
+  <h2>vertical-align: baseline (default):</h2>
+  <p>
+    An <img class="a" src="happy.gif" alt="Default alignment"> image with a default alignment.
+  </p>
+
+  <h2>vertical-align: text-top:</h2>
+  <p>
+    An <img class="b" src="happy.gif" alt="Text-top alignment"> image with a text-top alignment.
+  </p>
+
+  <h2>vertical-align: text-bottom:</h2>
+  <p>
+    An <img class="c" src="happy.gif" alt="Text-bottom alignment"> image with a text-bottom alignment.
+  </p>
+
+  <h2>vertical-align: sub:</h2>
+  <p>
+    An <img class="d" src="happy.gif" alt="Subscript alignment"> image with a sub alignment.
+  </p>
+
+  <h2>vertical-align: super:</h2>
+  <p>
+    An <img class="e" src="happy.gif" alt="Superscript alignment"> image with a superscript alignment.
+  </p>
+</body>
+</html>
