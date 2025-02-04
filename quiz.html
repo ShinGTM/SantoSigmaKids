@@ -87,9 +87,7 @@
     </style>
 </head>
 <body>
-
     <h1>ICT Quiz Platform</h1>
-
     <div class="progress-bar-container">
         <div class="progress-bar" id="progress"></div>
     </div>
@@ -149,12 +147,19 @@
 
         <!-- Home Button -->
         <button class="home-btn" onclick="goHome()">Home</button>
-
     </div>
 
     <script>
         let currentQuestion = 1;
         const totalQuestions = 5;
+        let score = 0;  // To track score
+        const correctAnswers = {
+            q1: 'a',
+            q2: 'c',
+            q3: 'a',
+            q4: 'c',
+            q5: 'a'
+        };
 
         function showQuestion(num) {
             document.querySelectorAll('.question').forEach(q => {
@@ -198,6 +203,16 @@
         }
 
         function checkAnswers() {
+            // Loop through each question and check answers
+            Object.keys(correctAnswers).forEach((q, index) => {
+                let selectedAnswer = document.querySelector(`input[name=${q}]:checked`);
+                if (selectedAnswer && selectedAnswer.value === correctAnswers[q]) {
+                    score++;
+                }
+            });
+
+            // Show the result after submission
+            document.getElementById("result").innerText = `Your Score: ${score} / ${totalQuestions}`;
             document.getElementById("correct-answers").style.display = "block";
         }
 
@@ -207,6 +222,5 @@
 
         showQuestion(currentQuestion);
     </script>
-
 </body>
 </html>
