@@ -67,30 +67,6 @@
             font-weight: bold;
             margin-top: 20px;
         }
-        .popup {
-            display: none;
-            position: fixed;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: white;
-            color: black;
-            padding: 15px;
-            border-radius: 10px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
-            text-align: center;
-        }
-        .popup button {
-            background: #065406;
-            color: white;
-            padding: 8px 15px;
-            border: none;
-            cursor: pointer;
-            margin-top: 10px;
-        }
-        .popup button:hover {
-            background: #043003;
-        }
         #correct-answers {
             display: none;
             margin-top: 20px;
@@ -100,6 +76,13 @@
             color: black;
             border-radius: 10px;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+        }
+        .home-btn {
+            margin-top: 20px;
+            background: #ff4500;
+        }
+        .home-btn:hover {
+            background: #d33b00;
         }
     </style>
 </head>
@@ -164,10 +147,9 @@
             <p>5. Hyper Text Transfer Protocol</p>
         </div>
 
-        <div class="popup" id="popup">
-            <p>Quiz completed! Click below to return home.</p>
-            <button onclick="window.location.href='index.html'">Go Back to Home</button>
-        </div>
+        <!-- Home Button -->
+        <button class="home-btn" onclick="goHome()">Home</button>
+
     </div>
 
     <script>
@@ -217,7 +199,10 @@
 
         function checkAnswers() {
             document.getElementById("correct-answers").style.display = "block";
-            document.getElementById("popup").style.display = "block";
+        }
+
+        function goHome() {
+            window.location.href = "index.html";  // Redirect to index.html
         }
 
         showQuestion(currentQuestion);
