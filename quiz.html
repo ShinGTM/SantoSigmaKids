@@ -91,6 +91,16 @@
         .popup button:hover {
             background: #043003;
         }
+        #correct-answers {
+            display: none;
+            margin-top: 20px;
+            text-align: left;
+            padding: 20px;
+            background: #e0ffe0;
+            color: black;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+        }
     </style>
 </head>
 <body>
@@ -139,46 +149,20 @@
             <input type="radio" name="q5" value="c"> c) Hyperlink Transfer Process <br>
         </div>
 
-        <div class="question" id="q6">
-            <p>6. What is an example of system software?</p>
-            <input type="radio" name="q6" value="a"> a) MS Word <br>
-            <input type="radio" name="q6" value="b"> b) Operating System <br>
-            <input type="radio" name="q6" value="c"> c) Web Browser <br>
-        </div>
-
-        <div class="question" id="q7">
-            <p>7. What does RAM stand for?</p>
-            <input type="radio" name="q7" value="a"> a) Random Access Memory <br>
-            <input type="radio" name="q7" value="b"> b) Read Access Memory <br>
-            <input type="radio" name="q7" value="c"> c) Rapid Action Memory <br>
-        </div>
-
-        <div class="question" id="q8">
-            <p>8. What does URL stand for?</p>
-            <input type="radio" name="q8" value="a"> a) Uniform Resource Locator <br>
-            <input type="radio" name="q8" value="b"> b) Universal Router Link <br>
-            <input type="radio" name="q8" value="c"> c) Unified Resource Link <br>
-        </div>
-
-        <div class="question" id="q9">
-            <p>9. Which of the following is a web browser?</p>
-            <input type="radio" name="q9" value="a"> a) Chrome <br>
-            <input type="radio" name="q9" value="b"> b) Photoshop <br>
-            <input type="radio" name="q9" value="c"> c) Windows <br>
-        </div>
-
-        <div class="question" id="q10">
-            <p>10. What is the primary function of an operating system?</p>
-            <input type="radio" name="q10" value="a"> a) Manage hardware and software <br>
-            <input type="radio" name="q10" value="b"> b) Play music <br>
-            <input type="radio" name="q10" value="c"> c) Browse the internet <br>
-        </div>
-
         <button onclick="prevQuestion()">Previous</button>
         <button onclick="nextQuestion()">Next</button>
         <button onclick="checkAnswers()" id="submitBtn" style="display: none;">Submit</button>
 
         <p id="result"></p>
+
+        <div id="correct-answers">
+            <h3>Correct Answers:</h3>
+            <p>1. Information and Communication Technology</p>
+            <p>2. Both a and b</p>
+            <p>3. Central Processing Unit</p>
+            <p>4. Monitor</p>
+            <p>5. Hyper Text Transfer Protocol</p>
+        </div>
 
         <div class="popup" id="popup">
             <p>Quiz completed! Click below to return home.</p>
@@ -188,78 +172,55 @@
 
     <script>
         let currentQuestion = 1;
-const totalQuestions = 10;
+        const totalQuestions = 5;
 
-function showQuestion(num) {
-    document.querySelectorAll('.question').forEach(q => {
-        q.classList.remove('active');
-        q.style.display = 'none';
-    });
+        function showQuestion(num) {
+            document.querySelectorAll('.question').forEach(q => {
+                q.classList.remove('active');
+                q.style.display = 'none';
+            });
 
-    let nextQ = document.getElementById(`q${num}`);
-    if (nextQ) {
-        nextQ.style.display = 'block';
-        setTimeout(() => {
-            nextQ.classList.add('active');
-        }, 10);
-    }
+            let nextQ = document.getElementById(`q${num}`);
+            if (nextQ) {
+                nextQ.style.display = 'block';
+                setTimeout(() => {
+                    nextQ.classList.add('active');
+                }, 10);
+            }
 
-    updateProgress();
-    toggleButtons();
-}
-
-function nextQuestion() {
-    if (currentQuestion < totalQuestions) {
-        currentQuestion++;
-        showQuestion(currentQuestion);
-    }
-}
-
-function prevQuestion() {
-    if (currentQuestion > 1) {
-        currentQuestion--;
-        showQuestion(currentQuestion);
-    }
-}
-
-function updateProgress() {
-    let progress = (currentQuestion / totalQuestions) * 100;
-    document.getElementById("progress").style.width = progress + "%";
-}
-
-function toggleButtons() {
-    document.getElementById("submitBtn").style.display = (currentQuestion === totalQuestions) ? "inline-block" : "none";
-}
-
-function checkAnswers() {
-    let score = 0;
-    let answers = {
-        q1: "a",
-        q2: "c",
-        q3: "a",
-        q4: "c",
-        q5: "a",
-        q6: "b",
-        q7: "a",
-        q8: "a",
-        q9: "a",
-        q10: "a"
-    };
-
-    for (let i = 1; i <= totalQuestions; i++) {
-        let selectedAnswer = document.querySelector(`input[name="q${i}"]:checked`);
-        if (selectedAnswer && selectedAnswer.value === answers[`q${i}`]) {
-            score++;
+            updateProgress();
+            toggleButtons();
         }
-    }
 
-    document.getElementById("result").innerText = `Your Score: ${score} / ${totalQuestions}`;
-    
-    document.getElementById("popup").style.display = "block";
-}
+        function nextQuestion() {
+            if (currentQuestion < totalQuestions) {
+                currentQuestion++;
+                showQuestion(currentQuestion);
+            }
+        }
 
-// Initialize the first question
-showQuestion(currentQuestion);// Same JavaScript logic as before, plus logic to show the popup after submission
+        function prevQuestion() {
+            if (currentQuestion > 1) {
+                currentQuestion--;
+                showQuestion(currentQuestion);
+            }
+        }
+
+        function updateProgress() {
+            let progress = (currentQuestion / totalQuestions) * 100;
+            document.getElementById("progress").style.width = progress + "%";
+        }
+
+        function toggleButtons() {
+            document.getElementById("submitBtn").style.display = (currentQuestion === totalQuestions) ? "inline-block" : "none";
+        }
+
+        function checkAnswers() {
+            document.getElementById("correct-answers").style.display = "block";
+            document.getElementById("popup").style.display = "block";
+        }
+
+        showQuestion(currentQuestion);
     </script>
 
 </body>

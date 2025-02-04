@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather & Timezones</title>
+    <style>
+        body {
+            background-color: #013220;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        h1, h2 {
+            color: #98FB98;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            border-radius: 8px;
+            background-color: #024b30;
+        }
+        button {
+            background-color: #02642e;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        th, td {
+            border: 1px solid white;
+            padding: 10px;
+        }
+        th {
+            background-color: #02642e;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Weather & Timezones</h1>
+
+    <div class="container">
+        <h2>Your Local Weather</h2>
+        <button onclick="getLocation()">Get Location & Weather</button>
+        <p id="demo">Click the button to get your coordinates.</p>
+        <p id="weather">Weather info will appear here.</p>
+        
+        <h2>Current Timezones</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Timezone</th>
+                    <th>Current Time</th>
+                </tr>
+            </thead>
+            <tbody id="timezones">
+                <!-- Timezones will be inserted here -->
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        const x = document.getElementById("demo");
+        const weatherInfo = document.getElementById("weather");
+
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition);
+            } else { 
+                x.innerHTML = "Geolocation is not supported by this browser.";
+            }
+        }
+
+        function showPosition(position) {
+            let lat = position.coords.latitude;
+            let lon = position.coords.longitude;
+            x.innerHTML = `Latitude: ${lat.toFixed(2)}, Longitude: ${lon.toFixed(2)}`;
+
+            // Estimate weather based on latitude
+            let temp = 25;
+            let now = new Date();
+            let hours = now.getHours();
+
+            if (Math.abs(lat) < 23) temp += 5; 
+            else if (Math.abs(lat) < 45) temp += 2; 
+            else temp -= 2;
+
+            if (hours > 6 && hours < 18) temp += 5;
+            else temp -= 5;
+
+            weatherInfo.innerHTML = `Estimated Temperature: ${Math.round(temp)}°C (Based on location & time)`;
+        }
+
+        function updateTimezones() {
+            const timeZones = [
+                { name: "UTC", zone: "UTC" },
+                { name: "New York (EST)", zone: "America/New_York" },
+                { name: "London (GMT)", zone: "Europe/London" },
+                { name: "Berlin (CET)", zone: "Europe/Berlin" },
+                { name: "Moscow (MSK)", zone: "Europe/Moscow" },
+                { name: "Dubai (GST)", zone: "Asia/Dubai" },
+                { name: "India (IST)", zone: "Asia/Kolkata" },
+                { name: "China (CST)", zone: "Asia/Shanghai" },
+                { name: "Tokyo (JST)", zone: "Asia/Tokyo" },
+                { name: "Sydney (AEST)", zone: "Australia/Sydney" }
+            ];
+
+            let tbody = document.getElementById("timezones");
+            tbody.innerHTML = "";
+
+            timeZones.forEach(zone => {
+                let now = new Date();
+                let time = new Intl.DateTimeFormat('en-US', { timeZone: zone.zone, timeStyle: "medium" }).format(now);
+
+                let row = `<tr>
+                    <td>${zone.name}</td>
+                    <td>${time}</td>
+                </tr>`;
+                tbody.innerHTML += row;
+            });
+        }
+
+        updateTimezones();
+        setInterval(updateTimezones, 60000);
+    </script>
+
+</body>
+</html>

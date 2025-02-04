@@ -122,6 +122,13 @@
       transform: scale(1.05);
       opacity: 1;
     }
+    .clickable {
+        color: green;  /* Default text color */
+        text-decoration: none; /* Remove underline */
+    }
+    .clickable:active {
+        color: white;  /* Turns green when clicked */
+    }
   </style>
 </head>
 <body>
@@ -131,8 +138,8 @@
 <div class="circle circle2"></div>
 
 <header>
-  <h1>ICT Connect</h1>
-  <nav>
+<h1><a href="location.html" class="clickable">ICT Connect</a></h1>
+<nav>
     <a href="teams.html" onclick="fadeRedirect(event, 'teams.html')">Teams</a>
     <a href="more.html" onclick="fadeRedirect(event, 'more.html')">More</a>
     <a href="works.html" onclick="fadeRedirect(event, 'works.html')">Works</a>
