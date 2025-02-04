@@ -28,8 +28,11 @@ ICT Connect is an open-source platform designed to revolutionize communication a
 ✨ Key Features
 
 ✔️ Secure & Scalable – Built with cutting-edge technology to ensure safety and flexibility.
+
 ✔️ User-Friendly Interface – Simple yet powerful UI for an optimal experience.
+
 ✔️ Real-Time Connectivity – Stay connected with seamless communication tools.
+
 ✔️ Open-Source & Community-Driven – Developed by a passionate community for global accessibility.
 
 
