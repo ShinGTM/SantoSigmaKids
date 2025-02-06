@@ -14,6 +14,7 @@
       color: #333333;
       overflow-x: hidden;
       transition: opacity 0.5s ease-in-out;
+      font-size: 1.5em; /* Larger text for desktop */
     }
 
     .circle {
@@ -89,6 +90,32 @@
       text-decoration: underline;
     }
 
+    /* Mobile Styles */
+    @media (max-width: 768px) {
+      body {
+        font-size: 1em; /* Smaller text for mobile */
+      }
+
+      h1 {
+        font-size: 2em; /* Smaller heading size for mobile */
+      }
+
+      .miscellaneous {
+        padding: 10px 20px;
+      }
+
+      .miscellaneous h2 {
+        font-size: 1.5em;
+      }
+
+      .misc-section {
+        font-size: 1.2em;
+      }
+
+      a {
+        font-size: 1em;
+      }
+    }
   </style>
 </head>
 <body>
