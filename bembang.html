@@ -1,0 +1,235 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Na bembang theory perds?</title>  
+    <style>  
+        body {  
+            background-color: black;  
+            color: black;  
+            font-family: Arial, sans-serif;  
+            text-align: center;  
+            align-items: center;  
+            padding: 50px;
+            margin: 0; 
+            display: flex;
+            justify-content: center; /* Center horizontally */
+            align-items: center;
+        }  
+  
+        .lyrics {  
+            font-size: 24px;  
+            opacity: 0;  
+            animation: fadeIn 2s ease-in forwards;  
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7); /* Added shadow effect */
+        }  
+  
+        .highlight {  
+            background: linear-gradient(45deg, #800000, #ff4500, #ff8c00, #ff0000);  
+            -webkit-background-clip: text;  
+            -webkit-text-fill-color: transparent;  
+            font-weight: bold;  
+        }  
+  
+        @keyframes fadeIn {  
+            from { opacity: 0; }  
+            to { opacity: 1; }  
+        }  
+
+        #myVideo {  
+            position: fixed;  
+            right: 0;  
+            bottom: 0;  
+            min-width: 200%;  
+            min-height: 100%;
+            z-index: -1;
+        }  
+    </style>  
+</head>  
+<body>  
+<video autoplay muted loop id="myVideo">  
+  <source src="b.mp4" type="video/mp4">  
+</video>  
+    <audio autoplay loop hidden>  
+        <source src="wag.mp3" type="audio/mpeg">  
+        Your browser does not support the audio element.  
+    </audio>  
+      
+    <div id="lyrics-container"></div>  
+  
+    <script>  
+        const lines = [  
+            { text: "Isa, ay kong ganun", delay: 3000 },  
+            { text: "iinom mo na ngayun", delay: 3000 },  
+            { text: "anong pake ko dyan sa", delay: 300 },  
+            { text: "<span class='highlight'>sa boyfriend mo</span>", delay: 1000 },  
+            { text: "kung ako ang gusto mo", delay: 3000 },  
+            { text: "Hindi mo mapipigil yon", delay: 1000 },  
+            { text: "at alam mo yun", delay: 3000 },  
+            { text: "sa kanya kapa", delay: 1000 },   
+            { text: "<span class='highlight'>uuwi</span>", delay: 1000 },  
+            { text: "pagkatapos", delay: 1000 },  
+            { text: "<span class='highlight'>lumuhod ng ganon</span>", delay: 300 }  
+        ];  
+  
+        function displayLyrics() {  
+            let container = document.getElementById("lyrics-container");  
+  
+            lines.reduce((promise, line) => {  
+                return promise.then(() => {  
+                    return new Promise(resolve => {  
+                        let div = document.createElement("div");  
+                        div.classList.add("lyrics");  
+                        div.innerHTML = line.text;  
+                        container.appendChild(div);  
+                        setTimeout(resolve, line.delay);  
+                    });  
+                });  
+            }, Promise.resolve());  
+        }  
+  
+        function resetLyrics() {  
+            let container = document.getElementById("lyrics-container");  
+            container.innerHTML = ''; // Clear the lyrics  
+            displayLyrics(); // Restart the lyrics display  
+        }  
+  
+        document.addEventListener("DOMContentLoaded", function() {  
+            displayLyrics(); // Call the function inside the event listener  
+  
+            let audio = new Audio("wag.mp3");  
+            audio.loop = true;  
+  
+            let playPromise = audio.play();  
+  
+            if (playPromise !== undefined) {  
+                playPromise.catch(() => {  
+                    document.addEventListener("click", () => audio.play(), { once: true });  
+                });  
+            }  
+  
+            // Restart lyrics after 5 seconds  
+            setInterval(resetLyrics, 22350);  
+        });  
+    </script>  
+  
+</body>  
+</html><!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Na bembang theory perds?</title>  
+    <style>  
+        body {  
+            background-color: black;  
+            color: black;  
+            font-family: Arial, sans-serif;  
+            text-align: center;  
+            align-items: center;  
+            padding: 50px;
+            margin: 0; 
+            display: flex;
+            justify-content: center; /* Center horizontally */
+            align-items: center;
+        }  
+  
+        .lyrics {  
+            font-size: 24px;  
+            opacity: 0;  
+            animation: fadeIn 2s ease-in forwards;  
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7); /* Added shadow effect */
+        }  
+  
+        .highlight {  
+            background: linear-gradient(45deg, #800000, #ff4500, #ff8c00, #ff0000);  
+            -webkit-background-clip: text;  
+            -webkit-text-fill-color: transparent;  
+            font-weight: bold;  
+        }  
+  
+        @keyframes fadeIn {  
+            from { opacity: 0; }  
+            to { opacity: 1; }  
+        }  
+
+        #myVideo {  
+            position: fixed;  
+            right: 0;  
+            bottom: 0;  
+            min-width: 200%;  
+            min-height: 100%;
+            z-index: -1;
+        }  
+    </style>  
+</head>  
+<body>  
+<video autoplay muted loop id="myVideo">  
+  <source src="b.mp4" type="video/mp4">  
+</video>  
+    <audio autoplay loop hidden>  
+        <source src="wag.mp3" type="audio/mpeg">  
+        Your browser does not support the audio element.  
+    </audio>  
+      
+    <div id="lyrics-container"></div>  
+  
+    <script>  
+        const lines = [  
+            { text: "i think we're meant to be", delay: 3000 },  
+            { text: "iinom mo na ngayun", delay: 3000 },  
+            { text: "anong pake ko dyan sa", delay: 300 },  
+            { text: "<span class='highlight'>sa boyfriend mo</span>", delay: 1000 },  
+            { text: "kung ako ang gusto mo", delay: 3000 },  
+            { text: "Hindi mo mapipigil yon", delay: 1000 },  
+            { text: "at alam mo yun", delay: 3000 },  
+            { text: "sa kanya kapa", delay: 1000 },   
+            { text: "<span class='highlight'>uuwi</span>", delay: 1000 },  
+            { text: "pagkatapos", delay: 1000 },  
+            { text: "<span class='highlight'>lumuhod ng ganon</span>", delay: 300 }  
+        ];  
+  
+        function displayLyrics() {  
+            let container = document.getElementById("lyrics-container");  
+  
+            lines.reduce((promise, line) => {  
+                return promise.then(() => {  
+                    return new Promise(resolve => {  
+                        let div = document.createElement("div");  
+                        div.classList.add("lyrics");  
+                        div.innerHTML = line.text;  
+                        container.appendChild(div);  
+                        setTimeout(resolve, line.delay);  
+                    });  
+                });  
+            }, Promise.resolve());  
+        }  
+  
+        function resetLyrics() {  
+            let container = document.getElementById("lyrics-container");  
+            container.innerHTML = ''; // Clear the lyrics  
+            displayLyrics(); // Restart the lyrics display  
+        }  
+  
+        document.addEventListener("DOMContentLoaded", function() {  
+            displayLyrics(); // Call the function inside the event listener  
+  
+            let audio = new Audio("wag.mp3");  
+            audio.loop = true;  
+  
+            let playPromise = audio.play();  
+  
+            if (playPromise !== undefined) {  
+                playPromise.catch(() => {  
+                    document.addEventListener("click", () => audio.play(), { once: true });  
+                });  
+            }  
+  
+            // Restart lyrics after 5 seconds  
+            setInterval(resetLyrics, 22350);  
+        });  
+    </script>  
+  
+</body>  
+</html>
