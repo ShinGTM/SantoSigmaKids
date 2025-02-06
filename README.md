@@ -18,6 +18,10 @@ Roniel Lumagda
 
 🌐<code style="color : lightblue">ICT Connect</code> ![Santo](https://github.com/ShinGTM/SantoSigmaKids/blob/main/icon.png)
 
+(currently working on our icon)
+
+
+
 Connecting people through innovative ICT solutions.
 
 ICT Connect is an open-source platform designed to revolutionize communication and connectivity in the digital age. It offers secure, fast, and reliable solutions for businesses and individuals, ensuring seamless digital interactions.
