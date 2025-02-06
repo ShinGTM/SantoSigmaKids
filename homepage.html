@@ -9,22 +9,23 @@
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #ffffff;
-      color: #333333;
+      background-color: #001f3f; /* Dark blue */
+      color: #ffffff;
       overflow-x: hidden;
-      transition: opacity 0.5s ease-in-out;
+      transition: background-color 1s ease-in-out, color 1s ease-in-out;
       position: relative;
     }
 
-    /* Background Circle */
+    /* Background Circles */
     .circle {
       position: fixed;
       width: 150px;
       height: 150px;
-      background-color: rgba(0, 102, 51, 0.3); /* Green with low opacity */
+      background-color: rgba(0, 31, 63, 0.3); /* Dark blue with opacity */
       border-radius: 50%;
       animation: moveCircle 15s infinite alternate ease-in-out, floatUpDown 5s infinite ease-in-out;
       z-index: -1;
+      transition: background-color 1s ease-in-out;
     }
 
     .circle1 {
@@ -35,7 +36,7 @@
     .circle2 {
       top: 70%;
       right: 10%;
-      animation-delay: 2s; /* Slight delay for a natural effect */
+      animation-delay: 2s;
     }
 
     @keyframes moveCircle {
@@ -52,9 +53,11 @@
       padding: 50px 20px;
     }
 
-    h1 {
+    h1 a {
       font-size: 3em;
-      color: #006633;
+      color: #66ccff; /* Light blue */
+      text-decoration: none;
+      transition: color 1s ease-in-out;
     }
 
     nav {
@@ -66,14 +69,14 @@
     nav a {
       margin: 0 15px;
       text-decoration: none;
-      color: #006633;
+      color: #66ccff; /* Light blue */
       font-size: 1.2em;
       border-bottom: 2px solid transparent;
-      transition: all 0.3s ease-in-out;
+      transition: all 0.3s ease-in-out, color 1s ease-in-out;
     }
 
     nav a:hover {
-      border-bottom: 2px solid #66ff99;
+      border-bottom: 2px solid #99ddff;
       transform: scale(1.1);
     }
 
@@ -98,7 +101,8 @@
       text-align: center;
       padding: 20px;
       font-size: 0.9em;
-      color: #006633;
+      color: #66ccff;
+      transition: color 1s ease-in-out;
     }
 
     /* Quiz Popup Button */
@@ -106,40 +110,73 @@
       position: fixed;
       bottom: 20px;
       right: 20px;
-      background-color: #006633;
+      background-color: #003366;
       color: #ffffff;
       padding: 15px 20px;
       font-size: 1.2em;
       border-radius: 10px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
       cursor: pointer;
-      transition: all 0.3s ease-in-out;
+      transition: all 0.3s ease-in-out, background-color 1s ease-in-out;
       opacity: 0.9;
     }
 
     .quiz-popup:hover {
-      background-color: #004d26;
+      background-color: #002244;
       transform: scale(1.05);
       opacity: 1;
     }
+
     .clickable {
-        color: green;  /* Default text color */
-        text-decoration: none; /* Remove underline */
+      color: #66ccff;  
+      text-decoration: none;
+      transition: color 1s ease-in-out;
     }
+    
     .clickable:active {
-        color: white;  /* Turns green when clicked */
+      color: white;
+    }
+
+    /* Theme Change (After 3s) */
+    .dark-green-theme {
+      background-color: #ffffff; /* White background */
+      color: #006633; /* Dark green text for default elements */
+    }
+
+    .dark-green-theme .circle {
+      background-color: rgba(0, 102, 51, 0.3);
+    }
+
+    .dark-green-theme h1 a, 
+    .dark-green-theme nav a, 
+    .dark-green-theme footer {
+      color: #006633; /* Dark green */
+    }
+
+    .dark-green-theme .quiz-popup {
+      background-color: #004d26;
+    }
+
+    .dark-green-theme nav a:hover {
+      border-bottom: 2px solid #66ff99;
+    }
+
+    /* Change p and h2 to black */
+    .dark-green-theme p,
+    .dark-green-theme h2 {
+      color: #000000; /* Black text */
     }
   </style>
 </head>
 <body>
 
-<!-- Moving Background Circle -->
+<!-- Moving Background Circles -->
 <div class="circle circle1"></div>
 <div class="circle circle2"></div>
 
 <header>
-<h1><a href="location.html" class="clickable">ICT Connect</a></h1>
-<nav>
+  <h1><a href="location.html" class="clickable">ICT Connect</a></h1>
+  <nav>
     <a href="teams.html" onclick="fadeRedirect(event, 'teams.html')">Teams</a>
     <a href="more.html" onclick="fadeRedirect(event, 'more.html')">More</a>
     <a href="works.html" onclick="fadeRedirect(event, 'works.html')">Works</a>
@@ -170,32 +207,6 @@
       <li>Software: Operating systems, applications, and tools for processing data.</li>
       <li>Telecommunications: Technologies like wireless networks, fiber optics, and satellite communications.</li>
       <li>Data: The information being stored, processed, or transmitted.</li>
-    </ul>
-  </p>
-</section>
-
-<section>
-  <h2 class="fade-in">Subsystems of ICT</h2>
-  <p class="fade-in">
-    ICT comprises several interconnected subsystems:
-    <ul class="fade-in">
-      <li>Data Processing Subsystems: Manage and manipulate data for useful output.</li>
-      <li>Communication Subsystems: Enable data exchange through email, messaging, or video calls.</li>
-      <li>Storage Subsystems: Store data securely and efficiently using cloud or local solutions.</li>
-      <li>Security Subsystems: Protect systems and data from unauthorized access or breaches.</li>
-    </ul>
-  </p>
-</section>
-
-<section>
-  <h2 class="fade-in">Main Components of ICT</h2>
-  <p class="fade-in">
-    ICT's main components are essential for enabling modern communication and information-sharing:
-    <ul class="fade-in">
-      <li>Devices: Computers, smartphones, tablets, servers, and peripherals.</li>
-      <li>Networks: Wired or wireless systems like LAN, WAN, and the internet.</li>
-      <li>Platforms: Software platforms that support business, education, and collaboration, such as Microsoft Office or Google Workspace.</li>
-      <li>Human Resources: Skilled professionals such as IT managers, developers, and engineers.</li>
     </ul>
   </p>
 </section>
@@ -231,12 +242,10 @@
     }, 500);
   };
 
-  // Fade-in when page loads
-  window.addEventListener('load', () => {
-    document.body.style.opacity = '1';
-  });
-
-  document.body.style.opacity = '0';
+  // Apply dark green theme after 3 seconds
+  setTimeout(() => {
+    document.body.classList.add('dark-green-theme');
+  }, 3000);
 </script>
 
 </body>
