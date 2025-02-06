@@ -14,6 +14,7 @@
       overflow-x: hidden;
       transition: background-color 1s ease-in-out, color 1s ease-in-out;
       position: relative;
+      font-size: 1.5em; /* Larger text for desktop */
     }
 
     /* Background Circles */
@@ -170,11 +171,42 @@
     .dark-green-theme ul {
       color: #000000; /* Black text */
     }
+    
+    /* Larger text for desktop */
     p {
       font-size: 2em;
     }
+
     ul {
       font-size: 2em;
+    }
+
+    /* Mobile Styles */
+    @media (max-width: 768px) {
+      body {
+        font-size: 1em; /* Smaller text for mobile */
+      }
+
+      h1, h2, p, ul {
+        font-size: 1.2em; /* Smaller text for mobile */
+      }
+
+      ul {
+        font-size: 1.2em;
+      }
+
+      header {
+        padding: 20px 10px;
+        font-size: 1.5em;
+      }
+
+      nav a {
+        font-size: 1em;
+      }
+
+      footer {
+        font-size: 1em;
+      }
     }
   </style>
 </head>
@@ -257,6 +289,5 @@
     document.body.classList.add('dark-green-theme');
   }, 1500);
 </script>
-/* Kapag naandito itong comment sa kanila matik copy paste - turon */
 </body>
 </html>
