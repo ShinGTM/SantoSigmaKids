@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <style>
         body {
-            background-color: #002b00;
+            background-color: #001f3f; /* Dark blue */
             color: white;
             font-family: Arial, sans-serif;
             display: flex;
@@ -15,22 +15,49 @@
             align-items: center;
             height: 100vh;
             margin: 0;
+            overflow: hidden;
         }
+        
+        /* Splash screen styling */
+        .splash-screen {
+            position: fixed;
+            width: 100%;
+            height: 100vh;
+            background-color: #001f3f;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            z-index: 999;
+        }
+        
+        .splash-screen img {
+            width: 150px;
+            height: 150px;
+        }
+        
+        .splash-screen h2 {
+            margin-top: 10px;
+            font-size: 20px;
+        }
+        
+        /* Login container (hidden initially) */
         .login-container {
-            background-color: #004d00;
+            background-color: #003366; /* Darker blue */
             padding: 20px;
-            border-radius: 10px;
             box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
             text-align: center;
-            width: 4000px;
+            width: 400px;
+            border-radius: 10px;
+            display: none; /* Hidden initially */
         }
+
         .login-logo {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            object-fit: cover;
+            width: 100%;
+            height: 200%;
             margin-bottom: 10px;
         }
+
         input {
             width: 85%;
             padding: 10px;
@@ -38,27 +65,37 @@
             border: none;
             border-radius: 5px;
             font-size: 16px;
+            background-color: #002244;
+            color: white;
             padding-right: 40px; /* Space for icon */
         }
+
+        input::placeholder {
+            color: #ccc;
+        }
+
         .password-container {
             position: relative;
             width: 100%;
         }
+
         .toggle-password {
             position: absolute;
-            right: 10px;
+            right: 15px;
             top: 50%;
             transform: translateY(-50%);
             cursor: pointer;
             color: #ccc;
             font-size: 20px;
         }
+
         .toggle-password:hover {
             color: white;
         }
+
         .login-btn {
             background-color: white;
-            color: #004d00;
+            color: #003366;
             font-weight: bold;
             padding: 10px;
             border: none;
@@ -66,6 +103,7 @@
             cursor: pointer;
             width: 100%;
         }
+
         .login-btn:hover {
             background-color: #ccc;
         }
@@ -73,7 +111,14 @@
 </head>
 <body>
 
-<div class="login-container">
+<!-- Splash Screen -->
+<div class="splash-screen" id="splashScreen">
+    <img src="loading.gif" alt="Loading...">
+    <h2>Loading, please wait...</h2>
+</div>
+
+<!-- Login Form (Hidden Initially) -->
+<div class="login-container" id="loginContainer">
     <img src="icon.png" alt="Logo" class="login-logo">
     <h2>Login</h2>
     <input type="text" id="username" placeholder="Username" required>
@@ -87,6 +132,12 @@
 </div>
 
 <script>
+    // Show splash screen for 5 seconds, then reveal login form
+    setTimeout(() => {
+        document.getElementById("splashScreen").style.display = "none";
+        document.getElementById("loginContainer").style.display = "block";
+    }, 5000);
+
     function togglePassword() {
         let passwordField = document.getElementById("password");
         let toggleIcon = document.getElementById("togglePassword");
