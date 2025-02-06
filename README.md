@@ -12,13 +12,13 @@ Jaycee Carcha
 
 Roniel Lumagda
 
-
+![Santo](https://github.com/ShinGTM/SantoSigmaKids/blob/main/logoo.gif)
 
 ---
 
-🌐<code style="color : lightblue">ICT Connect</code> ![Santo](https://github.com/ShinGTM/SantoSigmaKids/blob/main/logoo.gif)
+🌐<code style="color : lightblue">ICT Connect</code> 
 
-
+![Santo](https://github.com/ShinGTM/SantoSigmaKids/blob/main/ict.png)
 
 
 Connecting people through innovative ICT solutions.
