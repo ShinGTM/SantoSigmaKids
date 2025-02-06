@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Code Learning - Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: darkgreen;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        textarea {
+            width: 100%;
+            height: 250px;
+            background-color: #003300;
+            color: white;
+            border: 1px solid white;
+            padding: 10px;
+            font-size: 14px;
+        }
+        button {
+            background-color: white;
+            color: darkgreen;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 10px 0;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #cccccc;
+        }
+        iframe {
+            width: 100%;
+            height: 350px;
+            background-color: white;
+            border: 1px solid white;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Learn to Create a Calculator</h1>
+    <p>Edit the code below and click "Execute" to see the result.</p>
+
+    <textarea id="code">
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; }
+        input, button { font-size: 18px; margin: 5px; padding: 8px; }
+    </style>
+</head>
+<body>
+    <h2>Simple Calculator</h2>
+    <input type="number" id="num1">
+    <select id="operator">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">×</option>
+        <option value="/">÷</option>
+    </select>
+    <input type="number" id="num2">
+    <button onclick="calculate()">=</button>
+    <span id="result">?</span>
+
+    <script>
+        function calculate() {
+            var num1 = parseFloat(document.getElementById('num1').value) || 0;
+            var num2 = parseFloat(document.getElementById('num2').value) || 0;
+            var operator = document.getElementById('operator').value;
+            var result;
+            
+            switch(operator) {
+                case "+": result = num1 + num2; break;
+                case "-": result = num1 - num2; break;
+                case "*": result = num1 * num2; break;
+                case "/": result = num2 !== 0 ? (num1 / num2).toFixed(2) : "Error"; break;
+                default: result = "?";
+            }
+
+            document.getElementById('result').innerText = result;
+        }
+    </script>
+</body>
+</html>
+    </textarea>
+
+    <br>
+    <button onclick="executeCode()">Execute</button>
+
+    <h2>Output:</h2>
+    <iframe id="output"></iframe>
+
+    <script>
+        function executeCode() {
+            var code = document.getElementById('code').value;
+            var iframe = document.getElementById('output').contentWindow.document;
+            iframe.open();
+            iframe.write(code);
+            iframe.close();
+        }
+    </script>
+
+</body>
+</html>
