@@ -10,11 +10,12 @@
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-      background: #e6ffe6;
+      background: transparent;
       color: #333333;
       overflow-x: hidden;
       transition: opacity 0.5s ease-in-out;
     }
+
     .circle {
       position: fixed;
       width: 150px;
@@ -33,8 +34,9 @@
     .circle2 {
       top: 70%;
       right: 10%;
-      animation-delay: 2s; /* Slight delay for a natural effect */
+      animation-delay: 2s;
     }
+
     @keyframes moveCircle {
       0% {
         transform: translateX(0);
@@ -46,18 +48,23 @@
 
     header {
       text-align: center;
-      padding: 50px 20px;
-      background-color: green;
+      padding: 5px 10px;
+      background-color: #006633;
       color: #ffffff;
+      margin-bottom: 0;
+      border-top: 2px solid #006633;
     }
 
     h1 {
       font-size: 3em;
     }
+
     /* Miscellaneous styling */
     .miscellaneous {
-      background-color: #ffffff;
+      background-color: rgba(247, 247, 247, 0.9); /* Light gray with transparency */
       padding: 20px 50px;
+      margin-top: 0px;
+      border-top: 2px solid #006633;
     }
 
     .miscellaneous h2 {
@@ -80,33 +87,21 @@
       text-decoration: underline;
     }
 
-    /* Fade-in animation */
-    .fade-in {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.8s ease, transform 0.8s ease;
-    }
-
-    .fade-in.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
   </style>
 </head>
 <body>
   <div class="circle circle1"></div>
-<div class="circle circle2"></div>
+  <div class="circle circle2"></div>
 
 <header>
   <h1>More About ICT</h1>
 </header>
 <div class="miscellaneous">
   <h2>Miscellaneous</h2>
-
   <div class="misc-section">
     <h3>Indexes</h3>
     <p>
-      Explore comprehensive ICT-related topics and guides in structured indexes:
+      Explore comprehensive ICT-related topics and guides:
       <ul>
         <li><a href="https://www.wikipedia.org" target="_blank">Wikipedia's ICT Overview</a></li>
         <li><a href="https://www.techtarget.com" target="_blank">TechTarget ICT Glossary</a></li>
@@ -160,39 +155,6 @@
     </p>
   </div>
 </div>
-
-<script>
-  // Fade-in on scroll for sections
-  const fadeInElements = document.querySelectorAll('.fade-in');
-
-  const handleScroll = () => {
-    fadeInElements.forEach(el => {
-      const rect = el.getBoundingClientRect();
-      if (rect.top < window.innerHeight - 50) {
-        el.classList.add('visible');
-      }
-    });
-  };
-
-  window.addEventListener('scroll', handleScroll);
-
-  // Fade-out effect for page redirect
-  const fadeRedirect = (event, url) => {
-    event.preventDefault();
-    document.body.style.opacity = '0';
-    setTimeout(() => {
-      window.location.href = url;
-    }, 500);
-  };
-
-  // Fade-in on load
-  window.addEventListener('load', () => {
-    document.body.style.opacity = '1';
-  });
-
-  // Initial fade-out
-  document.body.style.opacity = '0';
-</script>
 
 </body>
 </html>
