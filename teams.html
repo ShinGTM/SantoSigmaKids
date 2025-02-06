@@ -14,7 +14,9 @@
       color: #333333;
       overflow-x: hidden;
       transition: opacity 0.5s ease-in-out; /* Fade-in/out effect */
+      min-height: 100vh; /* Ensure full height */
     }
+
     .circle {
       position: fixed;
       width: 150px;
@@ -35,6 +37,7 @@
       right: 10%;
       animation-delay: 2s; /* Slight delay for a natural effect */
     }
+
     @keyframes moveCircle {
       0% {
         transform: translateX(0);
@@ -116,13 +119,20 @@
       opacity: 1;
       transform: translateY(0);
     }
+
+    /* Spacer to ensure scrolling */
+    .spacer {
+      height: 200px;
+    }
   </style>
 </head>
 <body>
+
 <div class="circle circle1"></div>
 <div class="circle circle2"></div>
+
 <header>
-  <h1>Our Teams</h1>
+  <h1>Our Team</h1>
 </header>
 
 <div class="team-container">
@@ -136,36 +146,41 @@
   <div class="team-card fade-in">
     <img src="n.jpg">
     <h2>Nhagel R. Soliven</h2>
-    <p>giving information.</p>
+    <p>Giving information.</p>
     <a href="https://www.facebook.com/share/12FUbw8yN3Q/" target="_blank" title="Facebook">Facebook</a>
   </div>
 
   <div class="team-card fade-in">
     <img src="j.jpg">
     <h2>Jaycee Carcha</h2>
-    <p>animations.</p>
+    <p>Animations.</p>
     <a href="https://www.facebook.com/share/1Dy2noVc2F/" target="_blank" title="Facebook">Facebook</a>
   </div>
 
   <div class="team-card fade-in">
     <img src="nathan.jpg">
     <h2>Nathaniel Valenzuela</h2>
-    <p>supports the backend.</p>
+    <p>Supports the backend.</p>
     <a href="https://www.facebook.com/Hanahakiiiii" target="_blank" title="Facebook">Facebook</a>
   </div>
-    <div class="team-card fade-in">
+
+  <div class="team-card fade-in">
     <img src="ro.jpg">
     <h2>Roniel Lumagda</h2>
-    <p>giving ideas.</p>
+    <p>Giving ideas.</p>
     <a href="https://www.facebook.com/share/19mpfTP5LR/" target="_blank" title="Facebook">Facebook</a>
   </div>
 </div>
 
+<!-- Spacer to allow scrolling -->
+<div class="spacer"></div>
+
 <script>
-  // Fade-in animation for team cards
+  // Select all team cards
   const fadeInElements = document.querySelectorAll('.fade-in');
 
-  const handleScroll = () => {
+  // Function to handle fade-in animation
+  const handleFadeIn = () => {
     fadeInElements.forEach(el => {
       const rect = el.getBoundingClientRect();
       if (rect.top < window.innerHeight - 50) {
@@ -174,7 +189,14 @@
     });
   };
 
-  window.addEventListener('scroll', handleScroll);
+  // Run fade-in check on page load
+  window.addEventListener('load', () => {
+    document.body.style.opacity = '1';
+    handleFadeIn(); // Ensure elements fade in even if scrolling doesn’t happen
+  });
+
+  // Run fade-in check on scroll
+  window.addEventListener('scroll', handleFadeIn);
 
   // Smooth fade-out for redirect
   const fadeRedirect = (event, url) => {
@@ -184,11 +206,6 @@
       window.location.href = url;
     }, 500);
   };
-
-  // Fade-in on page load
-  window.addEventListener('load', () => {
-    document.body.style.opacity = '1';
-  });
 
   // Initial fade-out
   document.body.style.opacity = '0';
