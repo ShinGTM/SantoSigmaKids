@@ -18,7 +18,6 @@ Roniel Lumagda
 
 🌐<code style="color : lightblue">ICT Connect</code> ![Santo](https://github.com/ShinGTM/SantoSigmaKids/blob/main/logogif.gif)
 
-(currently working on our icon)
 
 
 
