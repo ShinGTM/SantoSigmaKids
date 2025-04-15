@@ -20,9 +20,9 @@ Roniel Lumagda
 
 ![Santo](https://github.com/ShinGTM/SantoSigmaKids/blob/main/ict.png)
 
-CHECK THE FULLY WORKING SITE:
+# CHECK THE FULLY WORKING SITE:
 
-santosigmakids.netlify.app
+https://santosigmakids.netlify.app
 
 
 Connecting people through innovative ICT solutions.
